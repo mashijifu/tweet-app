@@ -1,0 +1,22 @@
+<div class="posts-page">
+  <h2 class="page-title"><%= I18n.t("views.posts.index_title") %></h2>
+
+  <p class="new-post-link"><%= link_to I18n.t("layout.nav_new"), new_post_path, class: "btn btn-secondary" %></p>
+
+  <% if @posts.any? %>
+    <ul class="posts-list">
+      <% @posts.each do |post| %>
+        <li class="post-item">
+          <p class="post-content"><%= simple_format(h(post.content)) %></p>
+          <p class="post-meta">
+            <%= post.created_at.strftime("%Y年%m月%d日 %H:%M") %>
+            <%= link_to I18n.t("views.posts.edit_link"), edit_post_path(post), class: "link-edit" %>
+            <%= link_to I18n.t("views.posts.delete_link"), post_path(post), method: :delete, data: { confirm: I18n.t("views.posts.delete_confirm") }, class: "link-delete" %>
+          </p>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p class="no-posts"><%= I18n.t("views.posts.no_posts") %></p>
+  <% end %>
+</div>

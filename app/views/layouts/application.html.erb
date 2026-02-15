@@ -11,6 +11,30 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header class="header">
+      <div class="header-inner">
+        <h1 class="header-title"><%= link_to I18n.t("layout.app_name"), root_path %></h1>
+        <nav class="header-nav">
+          <%= link_to I18n.t("layout.nav_index"), posts_path, class: "nav-link" %>
+          <%= link_to I18n.t("layout.nav_new"), new_post_path, class: "nav-link" %>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main">
+      <% if notice %>
+        <p class="notice"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert"><%= alert %></p>
+      <% end %>
+      <%= yield %>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <p class="footer-text"><%= I18n.t("layout.footer_copyright") %></p>
+      </div>
+    </footer>
   </body>
 </html>

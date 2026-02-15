@@ -1,0 +1,39 @@
+ja:
+  activerecord:
+    errors:
+      messages:
+        blank: を入力してください
+        too_short: は%{count}文字以上で入力してください
+        too_long: は%{count}文字以内で入力してください
+      models:
+        post:
+          attributes:
+            content:
+              blank: を入力してください
+              too_short: は1文字以上で入力してください
+              too_long: は140文字以内で入力してください
+    attributes:
+      post:
+        content: 本文
+
+  views:
+    posts:
+      index_title: つぶやき一覧
+      new_title: 新規投稿
+      edit_title: つぶやきを編集
+      form_content: 本文
+      form_submit: 投稿する
+      form_update: 更新する
+      edit_link: 編集
+      delete_link: 削除
+      delete_confirm: 本当に削除しますか？
+      no_posts: つぶやきはまだありません。
+      created: つぶやきを投稿しました。
+      updated: つぶやきを更新しました。
+      destroyed: つぶやきを削除しました。
+
+  layout:
+    app_name: TweetApp
+    nav_index: 一覧
+    nav_new: 新規投稿
+    footer_copyright: © TweetApp

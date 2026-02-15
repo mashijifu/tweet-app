@@ -1,0 +1,22 @@
+<%= form_with model: @post, local: true, class: "post-form" do |f| %>
+  <% if @post.errors.any? %>
+    <div class="error-messages">
+      <h3><%= @post.errors.count %>件のエラーがあります</h3>
+      <ul>
+        <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-field">
+    <%= f.label :content, I18n.t("views.posts.form_content") %>
+    <%= f.text_area :content, rows: 4, class: "form-input", placeholder: "1文字以上140文字以内で入力してください", maxlength: 140 %>
+    <p class="form-hint">1〜140文字</p>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit @post.new_record? ? I18n.t("views.posts.form_submit") : I18n.t("views.posts.form_update"), class: "btn btn-primary" %>
+  </div>
+<% end %>
